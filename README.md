@@ -1,6 +1,8 @@
 # Airbnb JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*写JavaScript最合理的方式*
+
+仓库中推荐的中文翻译为ES5版本，而ES5版本已经被*弃用*了，这里会重新翻译最新版本，并官方版本保持同步。
 
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 [![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb-base.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
@@ -8,21 +10,23 @@
 
 Other Style Guides
  - [ES5 (Deprecated)](https://github.com/airbnb/javascript/tree/es5-deprecated/es5)
- - [React](react/)
- - [CSS-in-JavaScript](css-in-javascript/)
+ - [React](https://github.com/airbnb/javascript/tree/master/react)
+ - [CSS-in-JavaScript](https://github.com/airbnb/javascript/tree/master/css-in-javascript)
  - [CSS & Sass](https://github.com/airbnb/css)
  - [Ruby](https://github.com/airbnb/ruby)
+ 
+翻译自 [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 。
 
-## Table of Contents
+## 目录
 
-  1. [Types](#types)
-  1. [References](#references)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
+  1. [类型](#types)
+  1. [引用](#references)
+  1. [对象](#objects)
+  1. [数组](#arrays)
+  1. [解构](#destructuring)
+  1. [字符串](#strings)
+  1. [函数](#functions)
+  1. [箭头函数](#arrow-functions)
   1. [Classes & Constructors](#classes--constructors)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
@@ -52,10 +56,10 @@ Other Style Guides
   1. [Contributors](#contributors)
   1. [License](#license)
 
-## Types
+## 类型
 
   <a name="types--primitives"></a><a name="1.1"></a>
-  - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
+  - [1.1](#types--primitives) **原始值类型**: 当你操作一个原始值类型的值的时候，你可以直接操作它。
 
     + `string`
     + `number`
@@ -73,7 +77,7 @@ Other Style Guides
     ```
 
   <a name="types--complex"></a><a name="1.2"></a>
-  - [1.2](#types--complex)  **Complex**: When you access a complex type you work on a reference to its value.
+  - [1.2](#types--complex)  **复杂类型**: 当你在操作一个复杂类型的值的时候，你可以通过引用操作它。
 
     + `object`
     + `array`
@@ -88,14 +92,14 @@ Other Style Guides
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#table-of-contents)**
 
-## References
+## 引用
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) 对所有的引用使用`const`; 避免使用`var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
-    > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
+    > 为什么？这确保你不能重新指定引用，避免了引起bug和无法维护的代码。
 
     ```javascript
     // bad
@@ -108,9 +112,9 @@ Other Style Guides
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) 如果你重新赋值分配引用，最好使用`let`来代替`var`。 eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > 为什么？`let`是块级作用域，而`var`是函数作用域。
 
     ```javascript
     // bad
@@ -127,10 +131,10 @@ Other Style Guides
     ```
 
   <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
+  - [2.3](#references--block-scope) 注意：`let`和`const`都是块级作用域。
 
     ```javascript
-    // const and let only exist in the blocks they are defined in.
+    // const和let仅仅存在于他们定义的区域。
     {
       let a = 1;
       const b = 1;
@@ -139,12 +143,12 @@ Other Style Guides
     console.log(b); // ReferenceError
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#table-of-contents)**
 
-## Objects
+## 对象
 
   <a name="objects--no-new"></a><a name="3.1"></a>
-  - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+  - [3.1](#objects--no-new) 使用简洁的语法创建对象。 eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
 
     ```javascript
     // bad
@@ -155,9 +159,9 @@ Other Style Guides
     ```
 
   <a name="es6-computed-properties"></a><a name="3.4"></a>
-  - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
+  - [3.2](#es6-computed-properties) 创建动态属性的对象时，需要使用被计算的属性命名。
 
-    > Why? They allow you to define all the properties of an object in one place.
+    > 为什么？他允许你在一个地方定义对象的所有属性。
 
     ```javascript
 
@@ -181,7 +185,7 @@ Other Style Guides
     ```
 
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.3](#es6-object-shorthand) 使用定义对象方法的简洁写法。 eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
     ```javascript
     // bad
@@ -204,9 +208,9 @@ Other Style Guides
     ```
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.4](#es6-object-concise) 使用属性赋值的简洁方法。 eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
-    > Why? It is shorter to write and descriptive.
+    > 为什么？这样更容易写且更容易读。
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -223,9 +227,9 @@ Other Style Guides
     ```
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
+  - [3.5](#objects--grouped-shorthand) 将所有简写的属性放到对象声明的头部。
 
-    > Why? It's easier to tell which properties are using the shorthand.
+    > 为什么？这样容易区分哪些属性是简写的。
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -253,9 +257,9 @@ Other Style Guides
     ```
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  - [3.6](#objects--quoted-props) 只给含有无效标识符的属性加引号。 eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-    > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+    > 为什么？ 一般来说，我们认为它主观上更容易阅读。 同时，它改进了语法高亮，并且更容易由许多JS引擎优化
 
     ```javascript
     // bad
@@ -274,9 +278,9 @@ Other Style Guides
     ```
 
   <a name="objects--prototype-builtins"></a>
-  - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
+  - [3.7](#objects--prototype-builtins) 不要直接调用`Object.prototype`的方法，例如`hasOwnProperty`, `propertyIsEnumerable`, `isPrototypeOf`。
 
-    > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+    > 为什么？ 这些方法可能被有问题的对象的属性所隐藏，例如`{hasOwnProperty: false}`或者`Object.create(null)`。
 
     ```javascript
     // bad
@@ -286,7 +290,7 @@ Other Style Guides
     console.log(Object.prototype.hasOwnProperty.call(object, key));
 
     // best
-    const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+    const has = Object.prototype.hasOwnProperty; // 在模块作用域中，缓存hasOwnProperty方法
     /* or */
     import has from 'has';
     // ...
@@ -294,7 +298,7 @@ Other Style Guides
     ```
 
   <a name="objects--rest-spread"></a>
-  - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
+  - [3.8](#objects--rest-spread) 相对于[`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) 更推荐使用对象扩展操作符来深拷贝对象。使用对象扩展操作符来获得具有某些属性的新对象。
 
     ```javascript
     // very bad
@@ -313,12 +317,12 @@ Other Style Guides
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#table-of-contents)**
 
-## Arrays
+## 数组
 
   <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#arrays--literals) 使用字面语法来创建一个数组。 eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
 
     ```javascript
     // bad
@@ -329,7 +333,7 @@ Other Style Guides
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
+  - [4.2](#arrays--push) 使用 [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)代替直接赋值来给数组增加新的项。
 
     ```javascript
     const someStack = [];
@@ -342,7 +346,7 @@ Other Style Guides
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
+  - [4.3](#es6-array-spreads) 使用`...`来复制数组。
 
     ```javascript
     // bad
@@ -359,7 +363,7 @@ Other Style Guides
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) 使用[Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from)来将一个类似数组的对象转换成一个数组。
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -367,7 +371,7 @@ Other Style Guides
     ```
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  - [4.5](#arrays--callback-return) 在数组方法的回调函数中使用返回语句。如果函数体内仅仅包含一条语句，则可以省略返回语句，具体内容见[8.2](#8.2)。 eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
 
     ```javascript
     // good
@@ -415,14 +419,14 @@ Other Style Guides
     });
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#table-of-contents)**
 
-## Destructuring
+## 解构
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - [5.1](#destructuring--object) 当使用一个对象的多个属性时，推荐使用对象解构。 jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-    > Why? Destructuring saves you from creating temporary references for those properties.
+    > 为什么？解构赋值可以避免你为他们创建临时变量。
 
     ```javascript
     // bad
@@ -446,7 +450,7 @@ Other Style Guides
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
+  - [5.2](#destructuring--array) 使用数组结构。 jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -460,37 +464,35 @@ Other Style Guides
     ```
 
   <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
+  - [5.3](#destructuring--object-over-array) 使用对象解构来接收多个返回值，不使用数组解构。 jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
+    > 为什么？你可以增加新的属性或者改变他们的顺序，而不需要改变函数的返回值。
 
     ```javascript
     // bad
     function processInput(input) {
-      // then a miracle occurs
       return [left, right, top, bottom];
     }
 
-    // the caller needs to think about the order of return data
+    // 调用者需要思考返回值的顺序
     const [left, __, top] = processInput(input);
 
     // good
     function processInput(input) {
-      // then a miracle occurs
       return { left, right, top, bottom };
     }
 
-    // the caller selects only the data they need
+    // 调用者只需要考虑它需要什么
     const { left, top } = processInput(input);
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#table-of-contents)**
 
-## Strings
+## 字符串
 
   <a name="strings--quotes"></a><a name="6.1"></a>
-  - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - [6.1](#strings--quotes) 使用单引号`''`包裹字符串。 eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
     // bad
@@ -504,9 +506,9 @@ Other Style Guides
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) 超过100字符而造成换行的字符串不应该通过`+`连接多行。
 
-    > Why? Broken strings are painful to work with and make code less searchable.
+    > 为什么？破坏字符串是很痛苦的事情而且让代码搜索性变差。
 
     ```javascript
     // bad
@@ -525,9 +527,9 @@ Other Style Guides
     ```
 
   <a name="es6-template-literals"></a><a name="6.4"></a>
-  - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
+  - [6.3](#es6-template-literals) 当以编程方式构建字符串时，请使用模板字符串而不是`+`连接。 eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
-    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+    > 为什么？模板字符串为您提供一个可读，简洁的语法，具有适当的换行符和字符串插值功能。
 
     ```javascript
     // bad
@@ -552,12 +554,12 @@ Other Style Guides
     ```
 
   <a name="strings--eval"></a><a name="6.5"></a>
-  - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
+  - [6.4](#strings--eval) 绝对不要使用`eval()`，因为他可能引起很多问题。
 
   <a name="strings--escaping"></a>
-  - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+  - [6.5](#strings--escaping) 不要在字符串中使用不必要的转义。 eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
-    > Why? Backslashes harm readability, thus they should only be present when necessary.
+    > 为什么？反斜杠会损坏代码的可读性，因此它们只应在必要时出现.
 
     ```javascript
     // bad
@@ -568,7 +570,7 @@ Other Style Guides
     const foo = `my name is '${name}'`;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#table-of-contents)**
 
 
 ## Functions

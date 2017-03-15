@@ -19,42 +19,42 @@ Other Style Guides
 
 ## 目录
 
-  1. [类型](#types)
-  1. [引用](#references)
-  1. [对象](#objects)
-  1. [数组](#arrays)
-  1. [解构](#destructuring)
-  1. [字符串](#strings)
-  1. [函数](#functions)
-  1. [箭头函数](#arrow-functions)
+  1. [类型](#类型)
+  1. [引用](#引用)
+  1. [对象](#对象)
+  1. [数组](#数组)
+  1. [解构](#解构)
+  1. [字符串](#字符串)
+  1. [函数](#函数)
+  1. [箭头函数](#箭头函数)
   1. [Classes & Constructors](#classes--constructors)
-  1. [Modules](#modules)
+  1. [模块](#模块)
   1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
+  1. [属性](#属性)
+  1. [变量](#变量)
+  1. [提升](#提升)
   1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
+  1. [块](#块)
+  1. [注释](#注释)
+  1. [空格](#空格)
+  1. [逗号](#逗号)
+  1. [分号](#分号)
+  1. [类型转换](#类型转换)
+  1. [命名规则](#命名规则)
   1. [Accessors](#accessors)
-  1. [Events](#events)
+  1. [事件](#事件)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
-  1. [License](#license)
+  1. [ES6风格指南](#ES6风格指南)
+  1. [测试](#测试)
+  1. [性能](#性能)
+  1. [资源](#资源)
+  1. [谁在使用](#谁在使用)
+  1. [翻译](#翻译)
+  1. [JavaScript风格指南](#JavaScript风格指)
+  1. [和我们一起讨论JavaScript](#和我们一起讨论JavaScript)
+  1. [贡献者](#贡献者)
+  1. [授权许可](#授权许可)
 
 ## 类型
 
@@ -92,7 +92,7 @@ Other Style Guides
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-**[⬆ 返回顶部](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 ## 引用
 
@@ -143,7 +143,7 @@ Other Style Guides
     console.log(b); // ReferenceError
     ```
 
-**[⬆ 返回顶部](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 ## 对象
 
@@ -317,7 +317,7 @@ Other Style Guides
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
-**[⬆ 返回顶部](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 ## 数组
 
@@ -419,7 +419,7 @@ Other Style Guides
     });
     ```
 
-**[⬆ 返回顶部](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 ## 解构
 
@@ -487,7 +487,7 @@ Other Style Guides
     ```
 
 
-**[⬆ 返回顶部](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 ## 字符串
 
@@ -570,15 +570,15 @@ Other Style Guides
     const foo = `my name is '${name}'`;
     ```
 
-**[⬆ 返回顶部](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
-## Functions
+## 函数
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
+  - [7.1](#functions--declarations) 使用命名的函数表达式代替函数定义。 eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > 为什么？ 函数声明被提升，这意味着很容易 - 太容易 - 在文件中定义函数之前引用它。 这会损害可读性和可维护性。 如果你发现一个函数很大、很复杂，以至于它干扰了我们对文件的其余部分的理解，那么也许是时候把它提取到自己的模块！ 不要忘记命名函数表达式 - 因为匿名函数让我们很难在错误的调用栈中定位问题。 ([Discussion](https://github.com/airbnb/javascript/issues/794))
 
     ```javascript
     // bad
@@ -598,9 +598,9 @@ Other Style Guides
     ```
 
   <a name="functions--iife"></a><a name="7.2"></a>
-  - [7.2](#functions--iife) Wrap immediately invoked function expressions in parentheses. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
+  - [7.2](#functions--iife) 用括号包裹`IIFE`立即执行的匿名函数。 eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html) jscs: [`requireParenthesesAroundIIFE`](http://jscs.info/rule/requireParenthesesAroundIIFE)
 
-    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+    > 为什么？立即执行函数是一个独立的单位，将函数以及函数的括号包起来来明确的表达这一点。注意，在这个模块无处不在的世界里，你基本上就不需要立即执行函数啦。
 
     ```javascript
     // immediately-invoked function expression (IIFE)
@@ -610,10 +610,10 @@ Other Style Guides
     ```
 
   <a name="functions--in-blocks"></a><a name="7.3"></a>
-  - [7.3](#functions--in-blocks) Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+  - [7.3](#functions--in-blocks) 永远不要在一个非函数块(if, while 等等)定义一个函数。你可以将函数赋值给变量。浏览器是允许你这样做的，但是坏消息是不同的浏览器解释得也不同。 eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
 
   <a name="functions--note-on-blocks"></a><a name="7.4"></a>
-  - [7.4](#functions--note-on-blocks) **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.4](#functions--note-on-blocks) **注意:** ECMA-262定义一个“块”作为语句列表, 而函数声明不是语句。 [阅读ECMA-262关于这个问题的说明](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -633,7 +633,7 @@ Other Style Guides
     ```
 
   <a name="functions--arguments-shadow"></a><a name="7.5"></a>
-  - [7.5](#functions--arguments-shadow) Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#functions--arguments-shadow) 不要命名一个参数为`arguments`，这样做将优先覆盖函数中返回的`arguments`。
 
     ```javascript
     // bad
@@ -648,9 +648,9 @@ Other Style Guides
     ```
 
   <a name="es6-rest"></a><a name="7.6"></a>
-  - [7.6](#es6-rest) Never use `arguments`, opt to use rest syntax `...` instead. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+  - [7.6](#es6-rest) 不要使用`arguments`，可以尝试用`...`代替。 eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
 
-    > Why? `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+    > 为什么？ `...`是明确指出你将要传哪些参数。 此外，rest参数是一个真正的数组，而`arguments`仅仅是类似于数组的对象。
 
     ```javascript
     // bad
@@ -666,14 +666,13 @@ Other Style Guides
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#es6-default-parameters) 使用默认参数的语法，而不是去改变函数的参数。
 
     ```javascript
     // really bad
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // 不！我们不应该改变函数的参数
+      // 如果opts是`false`，opts将被设置成一个对象，可能这是你想要的，但这有可能尝试一些微妙的BUG。
       opts = opts || {};
       // ...
     }
@@ -693,9 +692,9 @@ Other Style Guides
     ```
 
   <a name="functions--default-side-effects"></a><a name="7.8"></a>
-  - [7.8](#functions--default-side-effects) Avoid side effects with default parameters.
+  - [7.8](#functions--default-side-effects) 避免副作用的使用默认参数。
 
-    > Why? They are confusing to reason about.
+    > 为什么？他们是混乱的源头。
 
     ```javascript
     var b = 1;
@@ -710,7 +709,7 @@ Other Style Guides
     ```
 
   <a name="functions--defaults-last"></a><a name="7.9"></a>
-  - [7.9](#functions--defaults-last) Always put default parameters last.
+  - [7.9](#functions--defaults-last) 将默认参数放到最后。
 
     ```javascript
     // bad
@@ -725,9 +724,9 @@ Other Style Guides
     ```
 
   <a name="functions--constructor"></a><a name="7.10"></a>
-  - [7.10](#functions--constructor) Never use the Function constructor to create a new function. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
+  - [7.10](#functions--constructor) 绝对不要使用函数构造器去创建一个新的函数。 eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
 
-    > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+    > 为什么？用这种方式创建函数类似于`eval()`，它将会产生一些漏洞。
 
     ```javascript
     // bad
@@ -738,9 +737,9 @@ Other Style Guides
     ```
 
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
-  - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
+  - [7.11](#functions--signature-spacing) 在函数签名前后加上适当的空格。 eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > 为什么？一致性是好的，你不应该在添加或删除名称时添加或删除空格。
 
     ```javascript
     // bad
@@ -754,7 +753,7 @@ Other Style Guides
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) 不要修改参数。 eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
     > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
@@ -771,9 +770,9 @@ Other Style Guides
     ```
 
   <a name="functions--reassign-params"></a><a name="7.13"></a>
-  - [7.13](#functions--reassign-params) Never reassign parameters. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.13](#functions--reassign-params) 不要重新定义参数。 eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
 
-    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
+    > 为什么？重新定义参数可以导致意外的行为，特别是`arguments`。特别是在V8引擎上它也可能导致优化问题。
 
     ```javascript
     // bad
@@ -799,9 +798,9 @@ Other Style Guides
     ```
 
   <a name="functions--spread-vs-apply"></a><a name="7.14"></a>
-  - [7.14](#functions--spread-vs-apply) Prefer the use of the spread operator `...` to call variadic functions. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
+  - [7.14](#functions--spread-vs-apply) 推荐使用`...`调用可变函数。 eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
 
-    > Why? It's cleaner, you don't need to supply a context, and you can not easily compose `new` with `apply`.
+    > 为什么？它更简洁，你不需要提供上下文，你不能轻易地用``apply``构成`new`
 
     ```javascript
     // bad
@@ -820,7 +819,7 @@ Other Style Guides
     ```
 
   <a name="functions--signature-invocation-indentation"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+  - [7.15](#functions--signature-invocation-indentation) 具有多行签名或者调用的函数影响这个指南中其他多行列表一样缩进，每一项占一行并在最后加上逗号。
 
     ```javascript
     // bad
@@ -852,16 +851,16 @@ Other Style Guides
     );
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
-## Arrow Functions
+## 箭头函数
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) When you must use function expressions (as when passing an anonymous function), use arrow function notation. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
+  - [8.1](#arrows--use-them) 当你必须使用函数表达式（传递匿名函数）时，使用箭头函数吧。 eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html) jscs: [`requireArrowFunctions`](http://jscs.info/rule/requireArrowFunctions)
 
-    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+    > 为什么？ 它创建一个在`this`上下文中执行的函数，这通常是你想要的，并且是一个更简洁的语法。
 
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+    > 为什么不？如果你有一个相当复杂的函数，你可以把这段逻辑放到它自己的函数声明
 
     ```javascript
     // bad
@@ -976,7 +975,7 @@ Other Style Guides
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Classes & Constructors
@@ -1145,7 +1144,7 @@ Other Style Guides
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Modules
@@ -1299,7 +1298,7 @@ Other Style Guides
     import barCss from 'bar.css';
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 ## Iterators and Generators
 
@@ -1409,7 +1408,7 @@ Other Style Guides
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Properties
@@ -1446,7 +1445,7 @@ Other Style Guides
     const isJedi = getProp('jedi');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Variables
@@ -1616,7 +1615,7 @@ Other Style Guides
     const truthyCount = array.filter(Boolean).length;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Hoisting
@@ -1716,7 +1715,7 @@ Other Style Guides
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/) by [Ben Cherry](http://www.adequatelygood.com/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Comparison Operators & Equality
@@ -1870,7 +1869,7 @@ Other Style Guides
     const baz = !c;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Blocks
@@ -1923,7 +1922,7 @@ Other Style Guides
     ```
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Comments
@@ -2064,7 +2063,7 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Whitespace
@@ -2391,7 +2390,7 @@ Other Style Guides
       .fail(() => console.log('You have failed this city.'));
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 ## Commas
 
@@ -2526,7 +2525,7 @@ Other Style Guides
     );
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Semicolons
@@ -2556,7 +2555,7 @@ Other Style Guides
 
     [Read more](https://stackoverflow.com/questions/7365172/semicolon-before-self-invoking-function/7365214%237365214).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Type Casting & Coercion
@@ -2643,7 +2642,7 @@ Other Style Guides
     const hasAge = !!age;
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Naming Conventions
@@ -2835,7 +2834,7 @@ Other Style Guides
     ];
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Accessors
@@ -2905,7 +2904,7 @@ Other Style Guides
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## Events
@@ -2937,7 +2936,7 @@ Other Style Guides
     });
     ```
 
-  **[⬆ back to top](#table-of-contents)**
+  **[⬆ 返回顶部](#目录)**
 
 
 ## jQuery
@@ -3007,7 +3006,7 @@ Other Style Guides
     $sidebar.find('ul').hide();
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
 ## ECMAScript 5 Compatibility
@@ -3015,10 +3014,10 @@ Other Style Guides
   <a name="es5-compat--kangax"></a><a name="26.1"></a>
   - [26.1](#es5-compat--kangax) Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](https://kangax.github.io/es5-compat-table/).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 <a name="ecmascript-6-styles"></a>
-## ECMAScript 6+ (ES 2015+) Styles
+## ES6风格指南
 
   <a name="es6-styles"></a><a name="27.1"></a>
   - [27.1](#es6-styles) This is a collection of links to the various ES6 features.
@@ -3042,9 +3041,9 @@ Other Style Guides
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
-## Testing
+## 测试
 
   <a name="testing--yup"></a><a name="28.1"></a>
   - [28.1](#testing--yup) **Yup.**
@@ -3064,10 +3063,10 @@ Other Style Guides
    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
-## Performance
+## 性能
 
   - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
@@ -3079,12 +3078,12 @@ Other Style Guides
   - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
   - Loading...
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 
-## Resources
+## 资源
 
-**Learning ES6**
+**学习ES6**
 
   - [Draft ECMA 2015 (ES6) Spec](https://people.mozilla.org/~jorendorff/es6-draft.html)
   - [ExploringJS](http://exploringjs.com/)
@@ -3095,7 +3094,7 @@ Other Style Guides
 
   - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
 
-**Tools**
+**工具**
 
   - Code Style Linters
     + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
@@ -3103,20 +3102,20 @@ Other Style Guides
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json) (Deprecated, please use [ESlint](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base))
   - Neutrino preset - [neutrino-preset-airbnb-base](https://neutrino.js.org/presets/neutrino-preset-airbnb-base/)
 
-**Other Style Guides**
+**其他风格指南**
 
   - [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml)
   - [jQuery Core Style Guidelines](https://contribute.jquery.org/style-guide/js/)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
 
-**Other Styles**
+**其他风格**
 
   - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
   - [Popular JavaScript Coding Conventions on GitHub](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
   - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
 
-**Further Reading**
+**进一步阅读**
 
   - [Understanding JavaScript Closures](https://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
@@ -3124,7 +3123,7 @@ Other Style Guides
   - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
   - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
 
-**Books**
+**书籍**
 
   - [JavaScript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -3143,7 +3142,7 @@ Other Style Guides
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
   - [You Don't Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
 
-**Blogs**
+**博客**
 
   - [JavaScript Weekly](http://javascriptweekly.com/)
   - [JavaScript, JavaScript...](https://javascriptweblog.wordpress.com/)
@@ -3156,15 +3155,15 @@ Other Style Guides
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://code.tutsplus.com/?s=javascript)
 
-**Podcasts**
+**播客**
 
   - [JavaScript Air](https://javascriptair.com/)
   - [JavaScript Jabber](https://devchat.tv/js-jabber/)
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
-## In the Wild
+## 谁在使用
 
   This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
 
@@ -3250,9 +3249,9 @@ Other Style Guides
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
-## Translation
+## 翻译
 
   This style guide is also available in other languages:
 
@@ -3273,20 +3272,20 @@ Other Style Guides
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [hngiang/javascript-style-guide](https://github.com/hngiang/javascript-style-guide)
 
-## The JavaScript Style Guide Guide
+## JavaScript风格指南
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## Chat With Us About JavaScript
+## 和我们一起讨论JavaScript
 
   - Find us on [gitter](https://gitter.im/airbnb/javascript).
 
-## Contributors
+## 贡献者
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 
-## License
+## 授权许可
 
 (The MIT License)
 
@@ -3311,7 +3310,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 返回顶部](#目录)**
 
 ## Amendments
 
